@@ -1,0 +1,589 @@
+/*
+ Theme Name:   Luxe Meds
+ Theme URI:    https://luxemeds.com
+ Description:  Child theme of Emoza WooCommerce for Luxe Meds
+ Author:       Luxe Meds
+ Template:     emoza-woocommerce
+ Version:      1.0.0
+ Text Domain:  luxe-meds
+*/
+
+/* Hide header search */
+.ehfb.ehfb-header .ehfb-component-search,
+#masthead .header-search,
+#masthead-mobile .header-search {
+  display: none !important;
+}
+.ehfb.ehfb-header .header-search-form,
+.ehfb.ehfb-header .search-overlay {
+  display: none !important;
+}
+
+/* Hide scroll to top button (for now) */
+.back-to-top {
+  display: none !important;
+}
+
+/* Header: hamburger/close on left, WooCommerce icons on right */
+.ehfb.ehfb-header .ehfb-row .ehfb-column:first-child {
+  justify-content: flex-start !important;
+}
+.ehfb.ehfb-header .ehfb-row .ehfb-column:last-child {
+  justify-content: flex-end !important;
+}
+#masthead-mobile .header-elements.align-right {
+  justify-content: flex-end;
+}
+
+/* Header floating with full round border */
+.ehfb.ehfb-header,
+#masthead.site-header,
+#masthead-mobile.mobile-header {
+  position: fixed !important;
+  top: 12px;
+  left: 16px;
+  right: 16px;
+  z-index: 1000;
+  background: #fff;
+  border-radius: 9999px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+  margin: 0;
+  max-width: calc(100vw - 32px);
+  width: auto;
+  overflow: hidden;
+  padding-left: 24px !important;
+  padding-right: 24px !important;
+}
+body.admin-bar .ehfb.ehfb-header,
+body.admin-bar #masthead.site-header,
+body.admin-bar #masthead-mobile.mobile-header {
+  top: 44px;
+}
+@media screen and (max-width: 782px) {
+  body.admin-bar .ehfb.ehfb-header,
+  body.admin-bar #masthead.site-header,
+  body.admin-bar #masthead-mobile.mobile-header {
+    top: 58px;
+  }
+}
+@media screen and (max-width: 480px) {
+  .ehfb.ehfb-header,
+  #masthead.site-header,
+  #masthead-mobile.mobile-header {
+    left: 10px;
+    right: 10px;
+    top: 10px;
+    max-width: calc(100vw - 20px);
+    padding-left: 16px !important;
+    padding-right: 16px !important;
+  }
+}
+/* Prevent content from hiding under fixed header */
+#page {
+  padding-top: 70px;
+}
+@media (min-width: 768px) {
+  #page {
+    padding-top: 80px;
+  }
+}
+body.home #page {
+  padding-top: 0;
+}
+
+/* Hide "Transform your health" and other hero text on homepage */
+body.home .entry-header,
+body.home .page-header,
+body.home .entry-title,
+body.home .page-title {
+  display: none !important;
+}
+
+/* No padding above slider - header sits directly above images */
+body.home #masthead,
+body.home .ehfb.ehfb-header,
+body.home .site-header {
+  margin-bottom: 0 !important;
+}
+.luxe-hero-slider {
+  margin-top: 0 !important;
+  padding-top: 0 !important;
+}
+
+/* Homepage hero slider - layered, mobile-first continuous background */
+.luxe-hero-slider {
+  position: relative;
+  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
+  min-height: 68vh;
+  min-height: 68svh;
+  height: 68vh;
+  height: 68svh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  z-index: 0;
+  touch-action: pan-x pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+
+.luxe-hero-slider--layered {
+  background: #ddd2c1;
+}
+
+.luxe-hero-slider--layered .luxe-hero-bg-motion {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+  filter: blur(2px);
+}
+
+.luxe-hero-slider--layered .luxe-hero-bg-track {
+  display: flex;
+  height: 100%;
+  width: max-content;
+  transform: translate3d(calc(var(--luxe-hero-active-index, 0) * -24vw), 0, 0);
+  transition: transform 700ms ease;
+  will-change: transform;
+}
+
+.luxe-hero-slider--layered .luxe-hero-bg-panel {
+  flex: 0 0 220vw;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+}
+
+.luxe-hero-slider--layered .swiper {
+  position: relative;
+  width: 100% !important;
+  min-width: 100%;
+  max-width: 100%;
+  height: 100%;
+  min-height: 68vh;
+  min-height: 68svh;
+  z-index: 2;
+}
+
+.luxe-hero-slider--layered .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  width: 100%;
+  position: relative;
+}
+
+.luxe-hero-slider--layered .luxe-hero-slide-stage {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.luxe-hero-slider--layered .luxe-hero-slide-stage::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 42%;
+  background: linear-gradient(
+    180deg,
+    rgba(17, 16, 13, 0) 0%,
+    rgba(17, 16, 13, 0.08) 35%,
+    rgba(17, 16, 13, 0.52) 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+}
+
+.luxe-hero-slider--layered .luxe-hero-bottle-stage {
+  position: absolute;
+  left: 50%;
+  bottom: 6.9rem;
+  transform: translateX(-50%);
+  width: min(70vw, 18rem);
+  max-height: 50%;
+  aspect-ratio: 292 / 617;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.luxe-hero-slider--layered .luxe-hero-bottle {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  will-change: transform;
+  filter: drop-shadow(0 18px 28px rgba(19, 15, 9, 0.28));
+}
+
+.luxe-hero-slider--layered .luxe-hero-bottle--single {
+  transform: translate3d(0, 0, 0);
+}
+
+.luxe-hero-slide-buttons {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translate3d(-50%, 10px, 0);
+  display: flex;
+  gap: 12px;
+  flex-wrap: nowrap;
+  justify-content: center;
+  width: min(320px, calc(100% - 12px));
+  max-width: 320px;
+  padding: 0 0.375rem;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.25s ease,
+    transform 0.25s ease,
+    visibility 0.25s ease;
+}
+
+.luxe-hero-slider--layered .swiper-slide-active .luxe-hero-slide-buttons {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  transform: translate3d(-50%, 0, 0);
+}
+
+.luxe-hero-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 8.75rem;
+  padding: 12px 20px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease;
+  box-shadow: 0 12px 22px rgba(17, 16, 13, 0.18);
+}
+.luxe-hero-btn:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+}
+.luxe-hero-btn-cart {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  appearance: none;
+  border: 0;
+  min-width: 110px;
+  height: 52px;
+  padding: 0 18px;
+  background: #fff;
+  color: #b88422 !important;
+  font-family: "Titillium Web", sans-serif !important;
+  font-size: 15px;
+  font-weight: 800;
+  text-transform: none;
+  letter-spacing: 0.01em;
+  box-shadow: 0 12px 28px rgba(17, 16, 13, 0.12);
+}
+.luxe-hero-btn-cart:hover {
+  opacity: 0.95;
+  box-shadow: 0 16px 34px rgba(17, 16, 13, 0.16);
+  color: #a67c1d !important;
+}
+
+.luxe-hero-btn--icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  line-height: 1;
+}
+
+.luxe-hero-btn__icon {
+  flex-shrink: 0;
+}
+
+.luxe-hero-btn-info {
+  background: rgba(255, 255, 255, 0.95);
+  color: #212121;
+  border: 2px solid rgba(255, 255, 255, 0.9);
+}
+
+/* Full bleed - slideshow 100% viewport width */
+.luxe-hero-slider {
+  margin-left: calc(-50vw + 50%);
+  margin-right: calc(-50vw + 50%);
+  width: 100vw;
+  max-width: 100vw;
+  box-sizing: border-box;
+}
+
+body.home .site-main {
+  padding-top: 0;
+}
+
+/* Mobile: smaller logo and compact header */
+@media (max-width: 575px) {
+  .custom-logo-link img {
+    width: 70px;
+    max-width: 70px;
+    height: auto;
+  }
+  .ehfb.ehfb-header .ehfb-main_header_row,
+  #masthead-mobile .row {
+    min-height: 70px !important;
+  }
+  .ehfb.ehfb-header .ehfb-row,
+  #masthead-mobile .row.valign {
+    align-items: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .luxe-hero-slider {
+    min-height: 72vh;
+    min-height: 72svh;
+    height: 72vh;
+    height: 72svh;
+  }
+
+  .luxe-hero-slider--layered .luxe-hero-bg-track {
+    transform: translate3d(
+      calc(var(--luxe-hero-active-index, 0) * -18vw),
+      0,
+      0
+    );
+  }
+
+  .luxe-hero-slider--layered .luxe-hero-bottle-stage {
+    bottom: 7.5rem;
+    width: min(34vw, 18rem);
+  }
+
+  .luxe-hero-slide-buttons {
+    bottom: 2rem;
+  }
+}
+
+/* Hide edit links on frontend */
+.edit-link,
+.entry-footer .edit-link {
+  display: none !important;
+}
+
+/* Rounded full text inputs */
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea,
+select,
+.wp-block-search .wp-block-search__input,
+.wc-block-product-search .wc-block-product-search__field,
+.woocommerce .select2-container .select2-selection--single,
+.woocommerce-page .select2-container .select2-selection--single,
+.wpforms-field input[type="text"],
+.wpforms-field input[type="email"],
+.wpforms-field input[type="url"],
+.wpforms-field input[type="password"],
+.wpforms-field input[type="search"],
+.wpforms-field input[type="number"],
+.wpforms-field input[type="tel"],
+.wpforms-field input[type="date"],
+.wpforms-field input[type="month"],
+.wpforms-field input[type="week"],
+.wpforms-field input[type="time"],
+.wpforms-field input[type="datetime"],
+.wpforms-field input[type="datetime-local"],
+.wpforms-field input[type="color"],
+.wpforms-field textarea,
+.wpforms-field select {
+  border-radius: 9999px !important;
+}
+
+/* WooCommerce notices - match WooCommerce default + theme button styles */
+.woocommerce-notices-wrapper {
+  margin-bottom: 2em;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message,
+.woocommerce-notices-wrapper .woocommerce-info,
+.woocommerce-notices-wrapper .woocommerce-error {
+  padding: 1em 2em 1em 3.5em;
+  margin: 0 0 1em;
+  position: relative;
+  background-color: #f6f5f8;
+  color: #515151;
+  border-top: 3px solid #720eec;
+  list-style: none outside;
+  width: auto;
+  word-wrap: break-word;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message::after,
+.woocommerce-notices-wrapper .woocommerce-info::after,
+.woocommerce-notices-wrapper .woocommerce-error::after {
+  content: " ";
+  display: table;
+  clear: both;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message:last-child,
+.woocommerce-notices-wrapper .woocommerce-info:last-child,
+.woocommerce-notices-wrapper .woocommerce-error:last-child {
+  margin-bottom: 0;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message {
+  border-top-color: #8fae1b;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message::before {
+  font-family: WooCommerce;
+  content: "\e015";
+  color: #8fae1b;
+  display: inline-block;
+  position: absolute;
+  top: 1em;
+  left: 1.5em;
+}
+
+.woocommerce-notices-wrapper .woocommerce-info {
+  border-top-color: #1e85be;
+}
+
+.woocommerce-notices-wrapper .woocommerce-info::before {
+  font-family: WooCommerce;
+  content: "\e028";
+  color: #1e85be;
+  display: inline-block;
+  position: absolute;
+  top: 1em;
+  left: 1.5em;
+}
+
+.woocommerce-notices-wrapper .woocommerce-error {
+  border-top-color: #b81c23;
+}
+
+.woocommerce-notices-wrapper .woocommerce-error::before {
+  font-family: WooCommerce;
+  content: "\e016";
+  color: #b81c23;
+  display: inline-block;
+  position: absolute;
+  top: 1em;
+  left: 1.5em;
+}
+
+.woocommerce-notices-wrapper .woocommerce-message .button,
+.woocommerce-notices-wrapper .woocommerce-info .button,
+.woocommerce-notices-wrapper .woocommerce-error .button {
+  float: right;
+  margin-left: 15px;
+  margin-bottom: 0;
+}
+
+/* Theme button style for wc-forward (Continue shopping) */
+.woocommerce-notices-wrapper .button.wc-forward {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 18px;
+  height: 44px;
+  border-radius: 999px;
+  appearance: none;
+  border: 0;
+  background: linear-gradient(135deg, #d2a84a 0%, #c69a38 48%, #b88422 100%);
+  color: #fff !important;
+  font-family: "Titillium Web", sans-serif !important;
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  text-decoration: none !important;
+  box-shadow: 0 12px 28px rgba(198, 154, 56, 0.28);
+  transition: transform 140ms ease, box-shadow 140ms ease;
+}
+
+.woocommerce-notices-wrapper .button.wc-forward:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 16px 34px rgba(198, 154, 56, 0.34);
+  color: #fff !important;
+}
+
+/* All WooCommerce buttons: gold background, white text */
+.woocommerce a.button,
+.woocommerce button.button,
+.woocommerce input.button,
+.woocommerce .button,
+.wc-block-components-button.wp-element-button.contained,
+.wc-block-components-button.contained,
+.wc-block-cart__submit-button,
+.wc-block-cart__submit-button.wc-block-components-button,
+.wc-block-components-checkout-place-order-button,
+.wc-block-checkout__actions .wc-block-components-checkout-place-order-button,
+.wp-block-button__link.add_to_cart_button,
+.single_add_to_cart_button,
+.woocommerce-checkout .checkout-button {
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 18px !important;
+  height: 52px !important;
+  min-height: 52px !important;
+  border-radius: 999px !important;
+  appearance: none !important;
+  border: 0 !important;
+  background: linear-gradient(135deg, #d2a84a 0%, #c69a38 48%, #b88422 100%) !important;
+  color: #fff !important;
+  font-family: "Titillium Web", sans-serif !important;
+  font-size: 15px !important;
+  font-weight: 800 !important;
+  letter-spacing: 0.01em !important;
+  text-decoration: none !important;
+  box-shadow: 0 12px 28px rgba(198, 154, 56, 0.28) !important;
+  transition: transform 140ms ease, box-shadow 140ms ease !important;
+}
+
+.woocommerce a.button:hover,
+.woocommerce button.button:hover,
+.woocommerce input.button:hover,
+.woocommerce .button:hover,
+.wc-block-components-button.wp-element-button.contained:hover,
+.wc-block-components-button.contained:hover,
+.wc-block-cart__submit-button:hover,
+.wc-block-cart__submit-button.wc-block-components-button:hover,
+.wc-block-components-checkout-place-order-button:hover,
+.wc-block-checkout__actions .wc-block-components-checkout-place-order-button:hover,
+.wp-block-button__link.add_to_cart_button:hover,
+.single_add_to_cart_button:hover,
+.woocommerce-checkout .checkout-button:hover {
+  transform: translateY(-1px) !important;
+  box-shadow: 0 16px 34px rgba(198, 154, 56, 0.34) !important;
+  color: #fff !important;
+}
+
+/* Ensure inner text in block buttons stays white and uses heading font */
+.wc-block-components-button__text,
+.wc-block-cart__submit-button .wc-block-components-button__text {
+  color: inherit !important;
+  font-family: inherit !important;
+}

@@ -1,0 +1,15 @@
+{
+  "name": "calareneesalon-static",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Static homepage for calareneesalon.com (layout cloned from luxemeds.com)",
+  "scripts": {
+    "prepare:site": "node scripts/cleanup-homepage.mjs",
+    "start": "node server.mjs",
+    "dev": "PORT=3000 node server.mjs"
+  },
+  "dependencies": {
+    "serve-handler": "^6.1.6"
+  }
+}

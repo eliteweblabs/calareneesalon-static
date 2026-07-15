@@ -1,0 +1,144 @@
+/* global document */
+(function () {
+  "use strict";
+
+  function initForcedMobileDrawer() {
+    var offCanvas = document.querySelector(".emoza-offcanvas-menu");
+    if (!offCanvas) return;
+
+    var toggles = document.querySelectorAll(".menu-toggle");
+    if (!toggles.length) return;
+
+    var closeButton = offCanvas.querySelector(".mobile-menu-close");
+    var closeIconEl = closeButton && closeButton.querySelector(".ws-svg-icon");
+    var closeIconHtml = closeIconEl ? closeIconEl.outerHTML : "";
+    var hamburgerIconHtml = [];
+    toggles.forEach(function (btn) {
+      var icon = btn.querySelector(".ws-svg-icon");
+      hamburgerIconHtml.push(icon ? icon.outerHTML : "");
+    });
+
+    function openMenu(event) {
+      if (event) event.preventDefault();
+      offCanvas.classList.add("toggled");
+      document.body.classList.add("mobile-menu-visible");
+      toggles.forEach(function (btn, i) {
+        btn.classList.add("open");
+        if (closeIconHtml) {
+          var icon = btn.querySelector(".ws-svg-icon");
+          if (icon) icon.outerHTML = closeIconHtml;
+        }
+        btn.title = "Close mobile menu";
+      });
+    }
+
+    function restoreHamburgerIcons() {
+      toggles.forEach(function (btn, i) {
+        btn.classList.remove("open");
+        if (hamburgerIconHtml[i]) {
+          var icon = btn.querySelector(".ws-svg-icon");
+          if (icon) icon.outerHTML = hamburgerIconHtml[i];
+        }
+        btn.title = "Open mobile offcanvas menu";
+      });
+    }
+
+    function closeMenu(event) {
+      if (event) event.preventDefault();
+      offCanvas.classList.remove("toggled");
+      document.body.classList.remove("mobile-menu-visible");
+      restoreHamburgerIcons();
+    }
+
+    /* Restore hamburger whenever menu closes (e.g. link click, overlay, theme handlers) */
+    var mo = new MutationObserver(function (mutations) {
+      mutations.forEach(function (m) {
+        if (m.attributeName === "class" && !offCanvas.classList.contains("toggled")) {
+          restoreHamburgerIcons();
+        }
+      });
+    });
+    mo.observe(offCanvas, { attributes: true, attributeFilter: ["class"] });
+
+    toggles.forEach(function (button, i) {
+      button.addEventListener("click", function (e) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+        if (offCanvas.classList.contains("toggled")) {
+          closeMenu(e);
+        } else {
+          openMenu(e);
+        }
+      }, { passive: false, capture: true });
+    });
+
+    document.addEventListener("click", function (event) {
+      var insideDrawer = event.target.closest(".emoza-offcanvas-menu");
+      var onToggle = event.target.closest(".menu-toggle");
+      if (!insideDrawer && !onToggle && offCanvas.classList.contains("toggled")) {
+        closeMenu();
+      }
+    });
+  }
+
+  function initTestimonialsCarousel() {
+    var carousels = document.querySelectorAll(".luxemeds-testimonials-carousel");
+    if (!carousels.length) return;
+
+    carousels.forEach(function (carousel) {
+      var slides = carousel.querySelectorAll(".luxemeds-testimonial-slide");
+      if (!slides.length) return;
+
+      var activeIndex = 0;
+      var interval = Number(carousel.getAttribute("data-interval") || 6000);
+
+      slides.forEach(function (slide, idx) {
+        slide.classList.toggle("is-active", idx === 0);
+      });
+
+      if (slides.length < 2) return;
+
+      window.setInterval(function () {
+        slides[activeIndex].classList.remove("is-active");
+        activeIndex = (activeIndex + 1) % slides.length;
+        slides[activeIndex].classList.add("is-active");
+      }, interval);
+    });
+  }
+
+  function initFadeShow() {
+    var shows = document.querySelectorAll(".luxemeds-fade-show");
+    if (!shows.length) return;
+
+    shows.forEach(function (show) {
+      var slides = show.querySelectorAll(".luxemeds-fade-slide");
+      if (!slides.length) return;
+
+      var activeIndex = 0;
+      var interval = Number(show.getAttribute("data-interval") || 4500);
+      slides.forEach(function (slide, idx) {
+        slide.classList.toggle("is-active", idx === 0);
+      });
+
+      if (slides.length < 2) return;
+
+      window.setInterval(function () {
+        slides[activeIndex].classList.remove("is-active");
+        activeIndex = (activeIndex + 1) % slides.length;
+        slides[activeIndex].classList.add("is-active");
+      }, Math.max(2000, interval));
+    });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      initForcedMobileDrawer();
+      initFadeShow();
+      initTestimonialsCarousel();
+    });
+  } else {
+    initForcedMobileDrawer();
+    initFadeShow();
+    initTestimonialsCarousel();
+  }
+})();

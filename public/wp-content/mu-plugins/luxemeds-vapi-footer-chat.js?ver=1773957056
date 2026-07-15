@@ -1,0 +1,163 @@
+/* global window, document */
+(function () {
+  "use strict";
+
+  var root = document.querySelector("[data-luxemeds-vapi-chat]");
+  if (!root) return;
+
+  var form = root.querySelector("[data-luxemeds-vapi-form]");
+  var input = root.querySelector("[data-luxemeds-vapi-input]");
+  var button = root.querySelector("[data-luxemeds-vapi-button]");
+  var status = root.querySelector("[data-luxemeds-vapi-status]");
+  var prompt = root.querySelector("[data-luxemeds-vapi-prompt]");
+  var config = window.luxemedsVapiChat || {};
+
+  if (!form || !input || !button || !status || !prompt) return;
+
+  var initialPrompt = "How can I help you?";
+  var publicKey = String(config.publicKey || "").trim();
+  var assistantId = String(config.assistantId || "").trim();
+  var isConfigured = !!(publicKey && assistantId);
+  var vapi = null;
+  var isStarting = false;
+  var isActive = false;
+  var queuedMessage = "";
+
+  function showPrompt(message) {
+    prompt.textContent = message;
+    prompt.classList.add("is-visible");
+  }
+
+  function setStatus(message) {
+    status.textContent = message;
+  }
+
+  function resetButton() {
+    isStarting = false;
+    button.disabled = false;
+    button.textContent = isActive ? "End" : "Start";
+  }
+
+  function sendUserMessage(message) {
+    if (!vapi || !message) return;
+
+    vapi.send({
+      type: "add-message",
+      message: {
+        role: "user",
+        content: message
+      },
+      triggerResponseEnabled: true
+    });
+  }
+
+  async function getVapiClient() {
+    if (vapi) return vapi;
+
+    var module = await import("https://esm.sh/@vapi-ai/web@2.5.2");
+    var Vapi = module.default;
+    vapi = new Vapi(publicKey);
+
+    vapi.on("call-start", function () {
+      isActive = true;
+      showPrompt(initialPrompt);
+      setStatus("Listening");
+      resetButton();
+
+      if (queuedMessage) {
+        sendUserMessage(queuedMessage);
+        queuedMessage = "";
+        input.value = "";
+      }
+    });
+
+    vapi.on("speech-start", function () {
+      if (isActive) {
+        setStatus("Speaking");
+      }
+    });
+
+    vapi.on("speech-end", function () {
+      if (isActive) {
+        setStatus("Listening");
+      }
+    });
+
+    vapi.on("call-end", function () {
+      isActive = false;
+      queuedMessage = "";
+      setStatus(isConfigured ? "Online now" : "Connect Vapi to go live");
+      resetButton();
+    });
+
+    vapi.on("error", function (error) {
+      console.error("LuxeMeds Vapi error", error);
+      isActive = false;
+      queuedMessage = "";
+      setStatus("Connection issue");
+      showPrompt("I'm having trouble connecting right now.");
+      resetButton();
+    });
+
+    return vapi;
+  }
+
+  window.setTimeout(function () {
+    showPrompt(initialPrompt);
+    input.setAttribute("placeholder", initialPrompt);
+  }, 2600);
+
+  input.addEventListener("focus", function () {
+    showPrompt(initialPrompt);
+  });
+
+  form.addEventListener("submit", async function (event) {
+    event.preventDefault();
+
+    var message = input.value.trim();
+
+    if (isActive && vapi) {
+      if (message) {
+        sendUserMessage(message);
+        input.value = "";
+        showPrompt(initialPrompt);
+      } else {
+        vapi.stop();
+      }
+      return;
+    }
+
+    if (!isConfigured) {
+      showPrompt("Connect your Vapi public key and assistant ID to turn me on.");
+      setStatus("Waiting for Vapi");
+      return;
+    }
+
+    if (isStarting) return;
+
+    isStarting = true;
+    button.disabled = true;
+    button.textContent = "Connecting";
+    setStatus("Connecting...");
+    queuedMessage = message || initialPrompt;
+
+    try {
+      var client = await getVapiClient();
+      await client.start(assistantId);
+    } catch (error) {
+      console.error("Unable to start Vapi", error);
+      isStarting = false;
+      queuedMessage = "";
+      setStatus("Mic permission needed");
+      showPrompt("Please allow microphone access and try again.");
+      button.disabled = false;
+      button.textContent = "Retry";
+    }
+  });
+
+  window.addEventListener("beforeunload", function () {
+    if (vapi && isActive) {
+      vapi.stop();
+    }
+  });
+})();
