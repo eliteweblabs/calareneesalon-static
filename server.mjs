@@ -15,7 +15,11 @@ const server = createServer((req, res) => {
     public: publicDir,
     cleanUrls: false,
     directoryListing: false,
-    headers: [{ source: '**/*', headers: [{ key: 'Cache-Control', value: 'public, max-age=3600' }] }],
+    headers: [
+      { source: '**/*.html', headers: [{ key: 'Cache-Control', value: 'no-cache' }] },
+      { source: '/', headers: [{ key: 'Cache-Control', value: 'no-cache' }] },
+      { source: '**/*', headers: [{ key: 'Cache-Control', value: 'public, max-age=3600' }] },
+    ],
   });
 });
 

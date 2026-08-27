@@ -13,7 +13,7 @@ let html = readFileSync(indexPath, 'utf8');
 html = html.replace(/<title><\/title>/, '<title>Cala Renee Salon</title>');
 html = html.replace(
   /<meta name='robots' content='max-image-preview:large' \/>/,
-  "<meta name='robots' content='max-image-preview:large' />\n<meta name='description' content='Cala Renee Salon — beauty and wellness services.' />",
+  "<meta name='robots' content='max-image-preview:large' />\n<meta name='description' content='Cala Renee Salon in Beverly, MA — curly hair specialists since 1989. Curl-by-curl cuts, color, and Innersense organic beauty.' />",
 );
 
 // Drop age verification (LuxeMeds WordPress plugin — not needed for salon site).

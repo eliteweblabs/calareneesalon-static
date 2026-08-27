@@ -1,0 +1,79 @@
+/* Cala Renee Salon overrides on the cloned homepage template */
+
+.custom-logo-link img.custom-logo,
+.luxemeds-footer__logo .custom-logo-link img {
+  width: 72px;
+  height: 72px;
+  max-width: 72px;
+  max-height: 72px;
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .custom-logo-link img.custom-logo,
+  .luxemeds-footer__logo .custom-logo-link img {
+    width: 84px;
+    height: 84px;
+    max-width: 84px;
+    max-height: 84px;
+  }
+}
+
+.luxe-hero-slider--layered .luxe-hero-bottle-stage {
+  aspect-ratio: 1;
+  width: min(58vw, 17rem);
+  max-height: none;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 24px 48px rgba(17, 16, 13, 0.28);
+}
+
+.luxe-hero-slider--layered .luxe-hero-bottle {
+  object-fit: cover;
+  filter: none;
+}
+
+@media (min-width: 768px) {
+  .luxe-hero-slider--layered .luxe-hero-bottle-stage {
+    width: min(32vw, 18rem);
+  }
+}
+
+.luxemeds-section#about p,
+.luxemeds-section#contact p,
+.luxemeds-hours {
+  max-width: 42rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.luxemeds-hours {
+  display: grid;
+  gap: 0.35rem;
+  text-align: left;
+  margin-top: 1.25rem;
+  font-size: 0.95rem;
+}
+
+.luxemeds-hours div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1.5rem;
+  border-bottom: 1px solid rgba(61, 74, 76, 0.12);
+  padding: 0.35rem 0;
+}
+
+.luxemeds-contact-meta {
+  display: grid;
+  gap: 0.4rem;
+  margin: 1.25rem 0 0;
+  text-align: center;
+}
+
+.luxemeds-contact-meta a {
+  color: inherit;
+}
+
+.luxemeds-footer__copy {
+  text-align: center;
+}

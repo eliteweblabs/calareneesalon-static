@@ -5,7 +5,7 @@
   "type": "module",
   "description": "Static homepage for calareneesalon.com (layout cloned from luxemeds.com)",
   "scripts": {
-    "prepare:site": "node scripts/cleanup-homepage.mjs",
+    "prepare:site": "node scripts/cleanup-homepage.mjs && node scripts/apply-salon-homepage.mjs",
     "start": "node server.mjs",
     "dev": "PORT=3000 node server.mjs"
   },
