@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none" role="img" aria-label="Cala Renee monogram" color="#F3F0E6">
+  <!--
+    CR monogram — recreated from a skewed photo.
+    Perfect circular ring; only the C hook breaks the rim at ~10 o'clock.
+  -->
+  <g
+    stroke="currentColor"
+    stroke-width="8"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+  >
+    <!--
+      Circular ring, r=78, center (100,100).
+      Gap from ~9:30–11:00 so the C hook can pass through.
+      Start ≈ (48, 48), end ≈ (70, 30) going the long way (CW through right/bottom/left).
+    -->
+    <path d="M 70 30 A 78 78 0 1 1 48 48" />
+
+    <!--
+      Script C
+      Outer teardrop hook at ~10 o'clock, body along the left, curl at bottom.
+    -->
+    <path d="
+      M 56 40
+      C 42 22 22 30 30 52
+      C 38 72 60 68 72 48
+      C 88 28 112 32 124 54
+      C 108 40 88 46 78 68
+      C 62 102 54 136 64 162
+      C 72 182 98 188 118 178
+      C 106 174 100 162 104 150
+      C 108 138 124 136 130 148
+    " />
+
+    <!--
+      Script R
+      Bowl in upper-right, stem through center, leg to lower-right.
+    -->
+    <path d="
+      M 124 54
+      C 146 40 174 50 176 78
+      C 178 106 156 124 134 120
+      L 124 118
+      C 118 116 116 106 118 92
+      C 122 62 124 40 126 26
+      C 128 62 130 108 132 144
+      C 134 170 148 186 172 190
+    " />
+  </g>
+</svg>
