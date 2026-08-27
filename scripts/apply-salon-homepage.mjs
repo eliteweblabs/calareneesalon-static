@@ -12,7 +12,7 @@ const indexPath = join(root, 'public', 'index.html');
 let html = readFileSync(indexPath, 'utf8');
 
 const logoImg =
-  '<img width="80" height="80" src="cr-monogram.svg" class="custom-logo" alt="Cala Renee Salon" decoding="async" />';
+  '<img width="587" height="510" src="cr-logo-gold.png" class="custom-logo" alt="Cala Renee Salon" decoding="async" />';
 
 html = html.replace(
   /<img[^>]*src="wp-content\/uploads\/2025\/07\/cropped-cropped-3-1\.png"[^>]*>/g,
@@ -21,8 +21,14 @@ html = html.replace(
 
 html = html.replace(
   'href="wp-content/uploads/2025/07/cropped-cropped-3-1.png" as="image"',
-  'href="cr-monogram.svg" as="image"',
+  'href="cr-logo-gold.png" as="image"',
 );
+
+html = html.replace(
+  /href='\.\/css2[^']+'/,
+  "href='fonts.css'",
+);
+html = html.replace(/href='fonts\.css'/g, "href='fonts.css'");
 
 if (!html.includes('id=\'cala-salon-css\'')) {
   html = html.replace(

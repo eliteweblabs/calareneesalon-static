@@ -1,21 +1,85 @@
 /* Cala Renee Salon overrides on the cloned homepage template */
 
+body,
+.site-main,
+.entry-content,
+.luxemeds-section,
+.luxemeds-section p,
+.luxemeds-card p,
+.luxemeds-contact-meta,
+.luxemeds-hours,
+.luxemeds-footer,
+.emoza-dropdown-link,
+.woocommerce-loop-product__title {
+  font-family: "Titillium Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.site-title,
+.luxemeds-kicker,
+.luxemeds-btn,
+.luxe-hero-btn,
+.luxemeds-vapi-chat__button,
+.luxemeds-vapi-chat__input {
+  font-family: "Titillium Web", "Helvetica Neue", Helvetica, Arial, sans-serif !important;
+}
+
+.luxemeds-testimonial-quote {
+  font-family: "Caveat", "Segoe Script", cursive !important;
+}
+
+.custom-logo-link,
+.site-branding,
+.ehfb-component-logo,
+.luxemeds-footer__logo .custom-logo-link {
+  background: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+}
+
 .custom-logo-link img.custom-logo,
 .luxemeds-footer__logo .custom-logo-link img {
-  width: 72px;
-  height: 72px;
-  max-width: 72px;
-  max-height: 72px;
+  display: block;
+  width: auto !important;
+  height: 72px !important;
+  max-width: none !important;
+  max-height: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
   object-fit: contain;
+  object-position: center;
 }
 
 @media (min-width: 768px) {
   .custom-logo-link img.custom-logo,
   .luxemeds-footer__logo .custom-logo-link img {
-    width: 84px;
-    height: 84px;
-    max-width: 84px;
-    max-height: 84px;
+    height: 96px !important;
+  }
+}
+
+.ehfb.ehfb-header,
+#masthead.site-header,
+#masthead-mobile.mobile-header {
+  overflow: visible !important;
+}
+
+.ehfb.ehfb-header .ehfb-main_header_row,
+.ehfb.ehfb-mobile .ehfb-main_header_row,
+#masthead-mobile .row {
+  min-height: 76px !important;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+}
+
+@media (min-width: 768px) {
+  .ehfb.ehfb-header .ehfb-main_header_row {
+    min-height: 104px !important;
   }
 }
 
