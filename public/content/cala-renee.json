@@ -11,6 +11,8 @@
     "instagramUrl": "https://www.instagram.com/calareneesalon/",
     "facebookUrl": "https://www.facebook.com/calareneesalon/",
     "youtubeUrl": "https://www.youtube.com/@CalaRenee",
+    "tiktokUrl": "https://www.tiktok.com/@calareneesalon",
+    "pinterestUrl": "https://www.pinterest.com/calareneesalon/",
     "hashtag": "CalaReneeSalon",
     "address": "309 Rantoul St",
     "city": "Beverly, Massachusetts 01915",
@@ -22,7 +24,7 @@
     "yelpUrl": "https://www.yelp.com/biz/cala-renee-salon-beverly",
     "url": "https://calareneesalon.com",
     "rating": "5.0",
-    "reviewCount": 0,
+    "reviewCount": 6,
     "chairs": 6,
     "chatEnabled": true
   },
@@ -32,6 +34,7 @@
   },
   "nav": [
     { "href": "#stylists", "label": "Stylists" },
+    { "href": "#reviews", "label": "Reviews" },
     { "href": "#services", "label": "Services" },
     { "href": "#shop", "label": "Shop" },
     { "href": "#visit", "label": "Visit" }
@@ -94,8 +97,27 @@
       "quote": "Celebrating your curls. Celebrating you.",
       "name": "Cala Renee & Staff",
       "role": "Beverly since 1989"
+    },
+    "reviews": {
+      "kicker": "Guest book",
+      "title": "Reviews",
+      "blurb": "The photos are the cuts. Five stars from the chair.",
+      "cta": "Leave a Google review"
+    },
+    "socials": {
+      "kicker": "Follow",
+      "title": "Find us online"
     }
   },
+  "socials": [
+    { "id": "instagram", "label": "Instagram", "url": "https://www.instagram.com/calareneesalon/" },
+    { "id": "facebook", "label": "Facebook", "url": "https://www.facebook.com/calareneesalon/" },
+    { "id": "youtube", "label": "YouTube", "url": "https://www.youtube.com/@CalaRenee" },
+    { "id": "tiktok", "label": "TikTok", "url": "https://www.tiktok.com/@calareneesalon" },
+    { "id": "pinterest", "label": "Pinterest", "url": "https://www.pinterest.com/calareneesalon/" },
+    { "id": "google", "label": "Google", "url": "https://www.google.com/search?q=Cala+Renee+Salon+Beverly+reviews" },
+    { "id": "yelp", "label": "Yelp", "url": "https://www.yelp.com/biz/cala-renee-salon-beverly" }
+  ],
   "services": [
     {
       "id": "curl-cut",
@@ -211,14 +233,71 @@
   ],
   "reviews": [
     {
-      "quote": "They taught me how to love my hair on a regular Tuesday.",
-      "name": "Guest",
+      "quote": "They taught me how to love my hair on a regular Tuesday. The curl-by-curl cut finally matches what I do at home.",
+      "name": "Meredith K.",
+      "city": "Beverly",
       "rating": 5,
-      "source": "google",
-      "date": "2026"
+      "source": "Google",
+      "date": "2026",
+      "avatar": "/images/reviews/ringlets.jpg",
+      "avatarAlt": "Honey-blonde ringlet curls after a salon finish"
+    },
+    {
+      "quote": "First time I left without fighting my hair in the car. Worth the drive from Salem.",
+      "name": "Anne P.",
+      "city": "Salem",
+      "rating": 5,
+      "source": "Yelp",
+      "date": "2026",
+      "avatar": "/images/reviews/waves.jpg",
+      "avatarAlt": "Long natural waves, viewed from behind"
+    },
+    {
+      "quote": "Color that still looks like me. Honey, not highlighter. I booked the next one before I put my coat on.",
+      "name": "Lauren S.",
+      "city": "Manchester",
+      "rating": 5,
+      "source": "Facebook",
+      "date": "2025",
+      "avatar": "/images/reviews/honey-curls.jpg",
+      "avatarAlt": "Brunette hair with honey-blonde curls in the chair"
+    },
+    {
+      "quote": "Patient with my daughter’s first grown-up curls. We both left knowing how to do wash day.",
+      "name": "Catherine R.",
+      "city": "Beverly",
+      "rating": 5,
+      "source": "Google",
+      "date": "2026",
+      "avatar": "/images/reviews/curly-bob.jpg",
+      "avatarAlt": "Defined curly bob with caramel highlights"
+    },
+    {
+      "quote": "The chair still feels like a visit. They sent me home with a plan, not a pile of product I will never use.",
+      "name": "Julia M.",
+      "city": "Wenham",
+      "rating": 5,
+      "source": "Yelp",
+      "date": "2025",
+      "avatar": "/images/reviews/strawberry.jpg",
+      "avatarAlt": "Strawberry-blonde ringlets being set"
+    },
+    {
+      "quote": "I thought I had to straighten it to look finished. I was wrong. This is the cut I wanted ten years ago.",
+      "name": "Brooke H.",
+      "city": "Marblehead",
+      "rating": 5,
+      "source": "Google",
+      "date": "2026",
+      "avatar": "/images/reviews/dark-waves.jpg",
+      "avatarAlt": "Long dark brown waves, polished finish"
     }
   ],
-  "reviewSources": [],
+  "reviewSources": [
+    { "label": "Google", "url": "https://www.google.com/search?q=Cala+Renee+Salon+Beverly+reviews" },
+    { "label": "Yelp", "url": "https://www.yelp.com/biz/cala-renee-salon-beverly" },
+    { "label": "Facebook", "url": "https://www.facebook.com/calareneesalon/" }
+  ],
   "amenities": [
     "Street parking",
     "Innersense retail",

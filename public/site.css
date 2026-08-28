@@ -39,6 +39,9 @@ h3 { font-size: 1.6rem; }
 }
 .lede { max-width: 34rem; color: rgba(23, 21, 18, 0.72); }
 .wrap { width: min(72rem, calc(100% - 2rem)); margin: 0 auto; padding: 3.5rem 0; }
+#stylists, #reviews, #services, #shop, #visit, #watch, #about {
+  scroll-margin-top: 5.5rem;
+}
 .skip, .sr {
   position: absolute;
   width: 1px;
@@ -144,7 +147,7 @@ h3 { font-size: 1.6rem; }
 .row-head { display: flex; align-items: end; justify-content: space-between; gap: 1rem; }
 .text-link { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; }
 
-.stylist-grid, .shop-grid, .svc-grid {
+.stylist-grid, .shop-grid, .svc-grid, .review-grid {
   display: grid;
   gap: 0.85rem;
   margin-top: 1.4rem;
@@ -183,6 +186,61 @@ h3 { font-size: 1.6rem; }
 }
 .video-more a { text-underline-offset: 0.15em; }
 
+.review {
+  display: grid;
+  gap: 0.7rem;
+  background: #fff;
+  border: 1px solid var(--line);
+  padding: 1rem 1rem 1.15rem;
+}
+.review-avatar {
+  width: 6.6rem;
+  height: 6.6rem;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center 18%;
+  border: 2px solid var(--gold);
+  background: #efe8dc;
+}
+.review-stars {
+  margin: 0;
+  color: var(--gold);
+  letter-spacing: 0.12em;
+  font-size: 0.85rem;
+}
+.review blockquote {
+  margin: 0;
+  font-family: "Cormorant Garamond", Georgia, serif;
+  font-size: 1.25rem;
+  line-height: 1.25;
+}
+.review-meta { margin: 0; }
+.review-meta strong { display: block; }
+.social-kicker { margin: 1.3rem 0 0.65rem; }
+.socials {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+}
+.visit .socials { justify-content: flex-start; }
+.socials a {
+  width: 2.65rem;
+  height: 2.65rem;
+  display: grid;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  text-decoration: none;
+  background: #fff;
+}
+.visit .socials a {
+  border-color: rgba(244, 239, 230, 0.24);
+  background: transparent;
+  color: var(--paper);
+}
+.socials svg { width: 1.15rem; height: 1.15rem; display: block; }
+
 .visit { background: var(--ink); color: var(--paper); }
 .visit a { color: inherit; }
 .hours { margin: 0; }
@@ -200,10 +258,10 @@ h3 { font-size: 1.6rem; }
 
 .foot {
   text-align: center;
-  padding: 2.5rem 1rem 1rem;
+  padding: 2.5rem 1rem calc(6.2rem + var(--safe-b));
 }
 .foot img { height: 72px; width: auto; margin: 0 auto 0.8rem; }
-.foot nav { display: flex; justify-content: center; gap: 1rem; }
+.foot nav { display: flex; justify-content: center; gap: 0.5rem; margin: 1rem 0 0.7rem; }
 
 .dock {
   position: fixed;
@@ -278,7 +336,7 @@ h3 { font-size: 1.6rem; }
   .split, .split-flip, .visit-grid { grid-template-columns: 1fr 1fr; align-items: center; }
   .split-flip img { order: 2; }
   .split img { height: 28rem; }
-  .stylist-grid { grid-template-columns: repeat(3, 1fr); }
+  .stylist-grid, .review-grid { grid-template-columns: repeat(3, 1fr); }
   .shop-grid, .svc-grid { grid-template-columns: repeat(2, 1fr); }
   .hero-copy { padding: 3rem 2.5rem 3.4rem; }
   .dock { display: none; }
