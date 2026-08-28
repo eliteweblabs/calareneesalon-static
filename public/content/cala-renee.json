@@ -1,0 +1,344 @@
+{
+  "site": {
+    "name": "Cala Renee Salon",
+    "shortName": "Cala Renee",
+    "tagline": "Changing lives one curl at a time.",
+    "description": "Curl specialists in Beverly, Massachusetts since 1989. Curl-by-curl cuts, botanical color, and Innersense organic beauty.",
+    "phone": "19789277500",
+    "phonePretty": "(978) 927-7500",
+    "email": "calarenee@calareneesalon.com",
+    "instagram": "calareneesalon",
+    "instagramUrl": "https://www.instagram.com/calareneesalon/",
+    "facebookUrl": "https://www.facebook.com/calareneesalon/",
+    "youtubeUrl": "https://www.youtube.com/@CalaRenee",
+    "hashtag": "CalaReneeSalon",
+    "address": "309 Rantoul St",
+    "city": "Beverly, Massachusetts 01915",
+    "geoUrl": "geo:0,0?q=309%20Rantoul%20St%2C%20Beverly%2C%20MA%2001915",
+    "mapsUrl": "https://www.google.com/maps/dir/?api=1&destination=309+Rantoul+St,+Beverly,+MA+01915",
+    "booksyUrl": "tel:+19789277500",
+    "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=Cala+Renee+Salon+309+Rantoul+St+Beverly+MA",
+    "googleReviewUrl": "https://www.google.com/search?q=Cala+Renee+Salon+Beverly+reviews",
+    "yelpUrl": "https://www.yelp.com/biz/cala-renee-salon-beverly",
+    "url": "https://calareneesalon.com",
+    "rating": "5.0",
+    "reviewCount": 0,
+    "chairs": 6,
+    "chatEnabled": true
+  },
+  "header": {
+    "wordmark": "Cala Renee",
+    "tagline": "Salon"
+  },
+  "nav": [
+    { "href": "#stylists", "label": "Stylists" },
+    { "href": "#services", "label": "Services" },
+    { "href": "#shop", "label": "Shop" },
+    { "href": "#visit", "label": "Visit" }
+  ],
+  "hours": {
+    "timezone": "America/New_York",
+    "days": {
+      "monday": null,
+      "tuesday": { "open": "08:00", "close": "16:00" },
+      "wednesday": { "open": "09:00", "close": "19:00" },
+      "thursday": { "open": "08:00", "close": "19:00" },
+      "friday": { "open": "08:00", "close": "17:00" },
+      "saturday": { "open": "08:00", "close": "15:00" },
+      "sunday": null
+    }
+  },
+  "hero": {
+    "stampLocation": "Beverly · 309 Rantoul",
+    "kicker": "Since 1989",
+    "headline": "Cala Renee",
+    "headlineAccent": "Salon",
+    "blurb": "Curl-by-curl cuts, botanical color, and a chair that still feels like a visit. Book. Get directions. Walk in looking like yourself.",
+    "primaryCta": "Book now",
+    "secondaryCta": "Directions",
+    "imageAlt": "Cala Renee Salon chairs and stations",
+    "marquee": [
+      "Curl by curl cut",
+      "Botanical color",
+      "Innersense retail",
+      "Beverly since 1989",
+      "Call (978) 927-7500"
+    ]
+  },
+  "sections": {
+    "barbers": {
+      "kicker": "The chairs",
+      "title": "The stylists",
+      "blurb": "Six chairs. Book the one whose work looks like you."
+    },
+    "servicesPage": {
+      "kicker": "The menu",
+      "title": "Services",
+      "blurb": "Same list as the chair. Color is quoted in the salon. Call to book."
+    },
+    "shop": {
+      "kicker": "Take home",
+      "title": "Shop",
+      "blurb": "Innersense Organic Beauty — the same bottles we use on the floor."
+    },
+    "find": {
+      "kicker": "Find us",
+      "title": "309 Rantoul",
+      "directions": "Directions",
+      "hoursTitle": "Hours",
+      "hoursNote": "Closed Sunday and Monday. We aim for 48 hours’ notice so we can offer your time to another guest.",
+      "amenitiesTitle": "In the salon"
+    },
+    "owner": {
+      "kicker": "From the chair",
+      "quote": "Celebrating your curls. Celebrating you.",
+      "name": "Cala Renee & Staff",
+      "role": "Beverly since 1989"
+    }
+  },
+  "services": [
+    {
+      "id": "curl-cut",
+      "name": "Curl by Curl Cut",
+      "blurb": "Hair is sculpted dry, curl by curl, so the shape lives in your natural pattern.",
+      "duration": "90 min",
+      "group": "cuts",
+      "price": "$165"
+    },
+    {
+      "id": "first-visit",
+      "name": "First Visit Bundle",
+      "blurb": "Consultation, curl-by-curl cut, botanical treat, style, and a plan you can repeat at home.",
+      "duration": "2 hr",
+      "group": "cuts",
+      "price": "$195"
+    },
+    {
+      "id": "trim",
+      "name": "Shape & Trim",
+      "blurb": "A tighter appointment for guests who already have the cut. Same dry-sculpt method.",
+      "duration": "45 min",
+      "group": "cuts",
+      "price": "$95"
+    },
+    {
+      "id": "kids",
+      "name": "Kids Curl Cut",
+      "blurb": "Patient chair, same standard. First grown-up curls and the regulars who already know us.",
+      "duration": "45 min",
+      "group": "cuts",
+      "price": "$85"
+    },
+    {
+      "id": "gloss",
+      "name": "Botanical Gloss",
+      "blurb": "A sheer, shine-first finish. Tone, refresh, or just make the hair look expensive.",
+      "duration": "45 min",
+      "group": "color",
+      "price": "$95+"
+    },
+    {
+      "id": "pintura",
+      "name": "Pintura & Highlights",
+      "blurb": "Hand-painted dimension for curls that move. Quoted after we see the hair.",
+      "duration": "2.5 hr",
+      "group": "color",
+      "price": "Varies"
+    },
+    {
+      "id": "color",
+      "name": "Botanical Color",
+      "blurb": "Full color with a quieter chemical story. Book extra time for a first visit.",
+      "duration": "2 hr",
+      "group": "color",
+      "price": "Varies"
+    },
+    {
+      "id": "treat",
+      "name": "Botanical Treatment",
+      "blurb": "A deep cleanse and treat on its own, or added to a cut.",
+      "duration": "30 min",
+      "group": "care",
+      "price": "$65"
+    },
+    {
+      "id": "style",
+      "name": "Style & Coach",
+      "blurb": "Blowout or curl set, then the product prescription so wash day is not a mystery.",
+      "duration": "45 min",
+      "group": "care",
+      "price": "$85"
+    },
+    {
+      "id": "occasion",
+      "name": "Occasion Style",
+      "blurb": "Updo, half-up, or a finish that photographs. Bring a reference.",
+      "duration": "60 min",
+      "group": "care",
+      "price": "$125"
+    }
+  ],
+  "serviceGroups": [
+    { "id": "cuts", "label": "Cuts" },
+    { "id": "color", "label": "Color" },
+    { "id": "care", "label": "Care & style" }
+  ],
+  "products": [
+    {
+      "slug": "hairbath",
+      "name": "Pure Harmony Hairbath",
+      "blurb": "Gentle cleanse. The house wash.",
+      "price": "$36",
+      "image": "/images/salon/hero.jpg",
+      "sizes": ["10 oz"]
+    },
+    {
+      "slug": "leave-in",
+      "name": "Sweet Spirit Leave-In",
+      "blurb": "Detangle, soften, and set the curl.",
+      "price": "$34",
+      "image": "/images/salon/style.jpg",
+      "sizes": ["10 oz"]
+    },
+    {
+      "slug": "hold",
+      "name": "I Create Hold",
+      "blurb": "The finish we send you home with.",
+      "price": "$32",
+      "image": "/images/salon/cut.jpg",
+      "sizes": ["10 oz"]
+    }
+  ],
+  "reviews": [
+    {
+      "quote": "They taught me how to love my hair on a regular Tuesday.",
+      "name": "Guest",
+      "rating": 5,
+      "source": "google",
+      "date": "2026"
+    }
+  ],
+  "reviewSources": [],
+  "amenities": [
+    "Street parking",
+    "Innersense retail",
+    "Accessible",
+    "Card & cash"
+  ],
+  "barbers": [
+    {
+      "slug": "elena-moreau",
+      "name": "Elena Moreau",
+      "shortName": "Elena",
+      "role": "Owner / Curl Director",
+      "email": "calarenee@calareneesalon.com",
+      "years": 22,
+      "order": 1,
+      "style": "Dry sculpting, old-school consultation",
+      "specialties": ["Curl by curl", "First visits", "Coaching"],
+      "quote": "The cut has to live in the curl, not on top of it.",
+      "spareTime": "",
+      "bio": "Elena runs the floor the way Cala taught it — dry, slow, and honest about what the hair will actually do on a Wednesday.",
+      "headshot": "/images/stylists/elena.jpg",
+      "prices": [
+        { "id": "curl-cut", "price": "$175" },
+        { "id": "first-visit", "price": "$210" }
+      ]
+    },
+    {
+      "slug": "brooke-langford",
+      "name": "Brooke Langford",
+      "shortName": "Brooke",
+      "role": "Senior Stylist",
+      "email": "calarenee@calareneesalon.com",
+      "years": 14,
+      "order": 2,
+      "style": "Quiet luxury, long-hair shape",
+      "specialties": ["Long curls", "Occasion style", "Gloss"],
+      "quote": "If it only looks good in the chair, it is not finished.",
+      "spareTime": "",
+      "bio": "Brooke takes the long appointments — weddings, first big cuts, the hair that has been over-styled for a decade.",
+      "headshot": "/images/stylists/brooke.jpg",
+      "prices": [
+        { "id": "curl-cut", "price": "$165" },
+        { "id": "occasion", "price": "$135" }
+      ]
+    },
+    {
+      "slug": "claire-whitfield",
+      "name": "Claire Whitfield",
+      "shortName": "Claire",
+      "role": "Colorist",
+      "email": "calarenee@calareneesalon.com",
+      "years": 11,
+      "order": 3,
+      "style": "Soft dimension, never fashion color",
+      "specialties": ["Pintura", "Gloss", "Blonde on curls"],
+      "quote": "Color should move when the curl moves.",
+      "spareTime": "",
+      "bio": "Claire paints for bounce, not for Instagram. Highlights that still look expensive six weeks later.",
+      "headshot": "/images/stylists/claire.jpg",
+      "prices": [
+        { "id": "gloss", "price": "$95+" },
+        { "id": "pintura", "price": "Varies" }
+      ]
+    },
+    {
+      "slug": "isabelle-hart",
+      "name": "Isabelle Hart",
+      "shortName": "Isabelle",
+      "role": "Curl Specialist",
+      "email": "calarenee@calareneesalon.com",
+      "years": 9,
+      "order": 4,
+      "style": "Texture first, scissors second",
+      "specialties": ["Waves", "Bobs", "Kids"],
+      "quote": "A good bob on a curl is architecture.",
+      "spareTime": "",
+      "bio": "Isabelle likes a shorter finish and a clean perimeter. Regulars who wear a curly bob sit with her.",
+      "headshot": "/images/stylists/isabelle.jpg",
+      "prices": [
+        { "id": "curl-cut", "price": "$155" },
+        { "id": "kids", "price": "$85" }
+      ]
+    },
+    {
+      "slug": "natalie-quinn",
+      "name": "Natalie Quinn",
+      "shortName": "Natalie",
+      "role": "Stylist",
+      "email": "calarenee@calareneesalon.com",
+      "years": 7,
+      "order": 5,
+      "style": "Precision with a light hand",
+      "specialties": ["Trim", "Treatments", "Style & coach"],
+      "quote": "Maintenance is a skill. I like doing it well.",
+      "spareTime": "",
+      "bio": "Natalie keeps the books moving — trims, treats, and the guests who already know exactly what they want.",
+      "headshot": "/images/stylists/natalie.jpg",
+      "prices": [
+        { "id": "trim", "price": "$95" },
+        { "id": "style", "price": "$85" }
+      ]
+    },
+    {
+      "slug": "camille-voss",
+      "name": "Camille Voss",
+      "shortName": "Camille",
+      "role": "Texture & Finish",
+      "email": "calarenee@calareneesalon.com",
+      "years": 8,
+      "order": 6,
+      "style": "Definition, bounce, walk-out glow",
+      "specialties": ["Defined curls", "Treatments", "First visits"],
+      "quote": "If you cannot do it at home, I did not finish the lesson.",
+      "spareTime": "",
+      "bio": "Camille is the wash-day coach. She will send you out with a bottle and a method, not a mystery.",
+      "headshot": "/images/stylists/camille.jpg",
+      "prices": [
+        { "id": "first-visit", "price": "$195" },
+        { "id": "treat", "price": "$65" }
+      ]
+    }
+  ]
+}
