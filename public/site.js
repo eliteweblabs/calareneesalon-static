@@ -107,7 +107,9 @@ function renderProducts(root, products) {
           <p data-edit-path="products[${index}].blurb">${item.blurb}</p>
           <div class="svc-top">
             <p class="price" data-edit-path="products[${index}].price">${item.price}</p>
-            <button class="btn btn-ink" type="button" data-add="${item.slug}">Add</button>
+            <button class="btn btn-gold btn-plus" type="button" data-add="${item.slug}" aria-label="Add ${item.name} to bag">
+              <span class="icon-plus" aria-hidden="true"></span>
+            </button>
           </div>
         </div>
       </article>`,

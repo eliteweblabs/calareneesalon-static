@@ -112,6 +112,22 @@ h3 { font-size: 1.6rem; }
   border: 1px solid transparent;
 }
 .btn-ink { background: var(--ink); color: var(--paper); }
+.btn-plus {
+  width: 2.4rem;
+  height: 2.4rem;
+  min-height: 0;
+  padding: 0;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.icon-plus {
+  display: block;
+  width: 1.15rem;
+  height: 1.15rem;
+  background: currentColor;
+  -webkit-mask: url("/icons/plus.svg") center / contain no-repeat;
+  mask: url("/icons/plus.svg") center / contain no-repeat;
+}
 .btn-gold { background: var(--gold); color: var(--ink); }
 .btn-ghost, .btn-line { border-color: currentColor; background: transparent; }
 .btn-ghost { color: #fff; }
@@ -225,7 +241,7 @@ h3 { font-size: 1.6rem; }
   background: var(--paper);
   border: 1px solid var(--line);
 }
-.svc-top { display: flex; justify-content: space-between; gap: 1rem; }
+.svc-top { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
 .group-label { margin: 1.6rem 0 0.7rem; }
 
 .video {
