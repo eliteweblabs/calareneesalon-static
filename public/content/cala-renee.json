@@ -229,6 +229,30 @@
       "price": "$32",
       "image": "/images/salon/cut.jpg",
       "sizes": ["10 oz"]
+    },
+    {
+      "slug": "quiet-calm",
+      "name": "Quiet Calm Curl Control",
+      "blurb": "Define the pattern without the crunch.",
+      "price": "$34",
+      "image": "/images/reviews/ringlets.jpg",
+      "sizes": ["10 oz"]
+    },
+    {
+      "slug": "color-radiance",
+      "name": "Color Radiance Conditioner",
+      "blurb": "Softness after botanical color.",
+      "price": "$36",
+      "image": "/images/reviews/honey-curls.jpg",
+      "sizes": ["10 oz"]
+    },
+    {
+      "slug": "volume",
+      "name": "I Create Volume",
+      "blurb": "Lift at the root. Movement through the curl.",
+      "price": "$32",
+      "image": "/images/reviews/waves.jpg",
+      "sizes": ["10 oz"]
     }
   ],
   "reviews": [

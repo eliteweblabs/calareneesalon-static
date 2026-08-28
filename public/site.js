@@ -9,6 +9,10 @@ function mergeContent(local, remote) {
   const reviews =
     Array.isArray(remote.reviews) && remote.reviews.some((row) => row.avatar) ? remote.reviews : local.reviews;
   const socials = Array.isArray(remote.socials) && remote.socials.length ? remote.socials : local.socials;
+  const products =
+    Array.isArray(remote.products) && remote.products.length >= (local.products?.length || 0)
+      ? remote.products
+      : local.products;
   return {
     ...local,
     ...remote,
@@ -16,6 +20,7 @@ function mergeContent(local, remote) {
     sections: { ...local.sections, ...remote.sections },
     reviews,
     socials,
+    products,
   };
 }
 
@@ -95,7 +100,7 @@ function renderProducts(root, products) {
   root.innerHTML = products
     .map(
       (item, index) => `
-      <article class="card" data-edit-list="products" data-edit-index="${index}">
+      <article class="card shop-card" data-edit-list="products" data-edit-index="${index}">
         <img src="${item.image}" alt="" />
         <div class="card-body">
           <h3 data-edit-path="products[${index}].name">${item.name}</h3>
@@ -108,6 +113,45 @@ function renderProducts(root, products) {
       </article>`,
     )
     .join("");
+}
+
+function bindCarousel(root) {
+  if (!root) return;
+  const track = root.querySelector("[data-products]");
+  const prev = root.querySelector("[data-carousel-prev]");
+  const next = root.querySelector("[data-carousel-next]");
+  if (!track || !prev || !next) return;
+
+  const cards = () => [...track.querySelectorAll(".shop-card")];
+  const shown = () => Math.max(1, parseFloat(getComputedStyle(root).getPropertyValue("--shown")) || 1);
+  const gapPx = () => parseFloat(getComputedStyle(track).columnGap || getComputedStyle(track).gap) || 0;
+  const peekPx = () => parseFloat(getComputedStyle(track).paddingInlineStart) || 0;
+  const step = () => {
+    const card = cards()[0];
+    return card ? card.getBoundingClientRect().width + gapPx() : track.clientWidth;
+  };
+  const indexFromScroll = () => Math.round(track.scrollLeft / step());
+
+  const update = () => {
+    const max = Math.max(0, track.scrollWidth - track.clientWidth - 4);
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft >= max;
+    root.toggleAttribute("data-ended", max <= 0);
+  };
+
+  const go = (delta) => {
+    const list = cards();
+    const maxIndex = Math.max(0, list.length - Math.floor(shown()));
+    const index = Math.min(maxIndex, Math.max(0, indexFromScroll() + delta));
+    const left = Math.max(0, list[index].offsetLeft - peekPx());
+    track.scrollTo({ left, behavior: "smooth" });
+  };
+
+  prev.addEventListener("click", () => go(-1));
+  next.addEventListener("click", () => go(1));
+  track.addEventListener("scroll", update, { passive: true });
+  window.addEventListener("resize", update);
+  update();
 }
 
 function renderHours(root, hours) {
@@ -274,5 +318,6 @@ renderAmenities(document.querySelector("[data-amenities]"), content.amenities);
 renderReviews(document.querySelector("[data-reviews]"), content.reviews);
 renderSocials(document.querySelectorAll("[data-socials]"), content.socials);
 applySite(content);
+bindCarousel(document.querySelector("[data-carousel]"));
 bindCart(content.products);
 bindChat(content);
